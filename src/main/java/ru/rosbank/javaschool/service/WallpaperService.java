@@ -6,10 +6,14 @@ import ru.rosbank.javaschool.repository.Wallpaper;
 public class WallpaperService {
 
     public void initialize(Room room, Wallpaper wallpaper) {
-        if (room.getWidth() > 0 && room.getLength() > 0) {
-            countSheetForRoom(room, wallpaper);
-            countSheetInOneOfWallpaper(room, wallpaper);
-            rollsOfWallpaper(room, wallpaper);
+        if (room.getWidth() > 0) {
+            if (room.getLength() > 0) {
+                countSheetForRoom(room, wallpaper);
+                countSheetInOneOfWallpaper(room, wallpaper);
+                rollsOfWallpaper(room, wallpaper);
+            } else {
+                System.out.println("Incorrect parameters");
+            }
         } else {
             System.out.println("Incorrect parameters");
         }
