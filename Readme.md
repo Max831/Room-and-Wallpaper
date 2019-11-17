@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/Max831/User_service_computing.svg?branch=master)](https://travis-ci.org/Max831/User_service_computing)[![codecov](https://codecov.io/gh/Max831/template_rosbank_java/branch/master/graph/badge.svg)](https://codecov.io/gh/Max831/template_rosbank_java)
+[![Build Status](https://travis-ci.org/Max831/Room-and-Wallpaper.svg?branch=master)](https://travis-ci.org/Max831/Room-and-Wallpaper)[![codecov](https://codecov.io/gh/Max831/Room-and-Wallpaper/branch/master/graph/badge.svg)](https://codecov.io/gh/Max831/Room-and-Wallpaper)
