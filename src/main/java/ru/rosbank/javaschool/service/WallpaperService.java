@@ -8,14 +8,20 @@ public class WallpaperService {
     public void initialize(Room room, Wallpaper wallpaper) {
         if (room.getWidth() > 0) {
             if (room.getLength() > 0) {
-                countSheetForRoom(room, wallpaper);
-                countSheetInOneOfWallpaper(room, wallpaper);
-                rollsOfWallpaper(room, wallpaper);
-            } else {
-                System.out.println("Incorrect parameters");
+                if (room.getHeight() > 0) {
+                    if (wallpaper.getLength() > 0) {
+                        if (wallpaper.getWidth() > 0) {
+                            countSheetForRoom(room, wallpaper);
+                            countSheetInOneOfWallpaper(room, wallpaper);
+                            if (wallpaper.getCountSheetInOneOfWallpaper() > 0) {
+                                rollsOfWallpaper(room, wallpaper);
+                            } else {
+                                System.out.println("Incorrect parameters");
+                            }
+                        }
+                    }
+                }
             }
-        } else {
-            System.out.println("Incorrect parameters");
         }
     }
 
@@ -28,8 +34,8 @@ public class WallpaperService {
         wallpaper.setCountSheetInOneOfWallpaper((int) Math.floor(wallpaper.getLength()
                 / (room.getHeight() + Wallpaper.getHeightUsability() + wallpaper.getRapport()
                 + wallpaper.getOffsetRapport())));
-        System.out.println("Count sheet in one of wallpaper "
-                + wallpaper.getCountSheetInOneOfWallpaper());
+            System.out.println("Count sheet in one of wallpaper "
+                    + wallpaper.getCountSheetInOneOfWallpaper());
     }
 
     private void rollsOfWallpaper(Room room, Wallpaper wallpaper) {
