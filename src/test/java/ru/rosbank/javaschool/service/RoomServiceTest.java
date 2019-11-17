@@ -28,7 +28,7 @@ class RoomServiceTest {
     private Room roomNumber6 = new Room(5,6,2.85);
     private Wallpaper wallpaperForRoomNumber6 = new Wallpaper(1.06, 10);
 
-    private Room roomNumber7 = new Room(5,6,2.85);
+    private Room roomNumber7 = new Room(4,6,2.85);
     private Wallpaper wallpaperForRoomNumber7 = new Wallpaper(11.06, 1);
 
     @Test
