@@ -6,27 +6,21 @@ import ru.rosbank.javaschool.repository.Wallpaper;
 public class WallpaperService {
 
     public void initialize(Room room, Wallpaper wallpaper) {
-        if (validateValueRoom(room)) {
-            if (validateValueWallpaper(wallpaper)) {
-                countSheetForRoom(room, wallpaper);
-                countSheetInOneOfWallpaper(room, wallpaper);
-                if (wallpaper.getCountSheetInOneOfWallpaper() > 0) {
-                    rollsOfWallpaper(room, wallpaper);
-                } else {
-                    System.out.println("Incorrect parameters");
-                }
+        if (validateValueWallpaper(wallpaper) && validateValueRoom(room)) {
+            countSheetForRoom(room, wallpaper);
+            countSheetInOneOfWallpaper(room, wallpaper);
+            if (wallpaper.getCountSheetInOneOfWallpaper() > 0) {
+                rollsOfWallpaper(room, wallpaper);
+            } else {
+                System.out.println("Incorrect parameters");
             }
         }
     }
 
     public boolean validateValueRoom(Room room) {
-        if (room.getWidth() > 0) {
-            if (room.getLength() > 0) {
+        if (room.getWidth() > 0 && room.getLength() > 0) {
                 return room.getHeight() > 0;
             } else {
-                return false;
-            }
-        } else {
             return false;
         }
     }

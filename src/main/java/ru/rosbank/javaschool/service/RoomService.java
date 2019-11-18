@@ -13,13 +13,9 @@ public class RoomService {
         }
     }
     public boolean validateValueRoom(Room room) {
-            if (room.getWidth() > 0) {
-                if (room.getLength() > 0) {
+            if (room.getWidth() > 0 && room.getLength() > 0) {
                     return room.getHeight() > 0;
                 } else {
-                    return false;
-                }
-            } else {
                 return false;
             }
         }
