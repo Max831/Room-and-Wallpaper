@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import ru.rosbank.javaschool.repository.Room;
 import ru.rosbank.javaschool.repository.Wallpaper;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class RoomServiceTest {
     private static RoomService roomService =  new RoomService();
     private static WallpaperService wallpaperService = new WallpaperService();
