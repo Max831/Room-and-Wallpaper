@@ -12,7 +12,7 @@ public class RoomService {
             System.out.println("Incorrect parameters");
         }
     }
-        private boolean validateValueRoom(Room room) {
+    public boolean validateValueRoom(Room room) {
             if (room.getWidth() > 0) {
                 if (room.getLength() > 0) {
                     return room.getHeight() > 0;
