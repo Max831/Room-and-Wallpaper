@@ -31,6 +31,9 @@ class WallpaperServiceTest {
     private Room roomNumber7 = new Room(5,6,2.85);
     private Wallpaper wallpaperForRoomNumber7 = new Wallpaper(11.06, 1);
 
+    private Room roomNumber8 = new Room(5,6,2.85);
+    private Wallpaper wallpaperForRoomNumber8 = new Wallpaper(11.06, -1);
+
     @Test
     void all() {
         roomService.perimeter(roomNumber1);
@@ -47,6 +50,7 @@ class WallpaperServiceTest {
         wallpaperService.initialize(roomNumber6, wallpaperForRoomNumber6);
         roomService.perimeter(roomNumber7);
         wallpaperService.initialize(roomNumber7, wallpaperForRoomNumber7);
-
+        roomService.perimeter(roomNumber8);
+        wallpaperService.initialize(roomNumber8, wallpaperForRoomNumber8);
     }
 }
