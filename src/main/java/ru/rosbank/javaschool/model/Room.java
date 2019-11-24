@@ -1,11 +1,10 @@
-package ru.rosbank.javaschool.repository;
+package ru.rosbank.javaschool.model;
 
 public class Room {
     private double width;
     private double length;
     private double height;
     private double perimeter;
-    private int countRollsOfWallpaper;
 
     public Room(double width, double length, double height) {
         this.width = width;
@@ -43,13 +42,5 @@ public class Room {
 
     public void setPerimeter(double perimeter) {
         this.perimeter = perimeter;
-    }
-
-    public int getCountRollsOfWallpaper() {
-        return countRollsOfWallpaper;
-    }
-
-    public void setCountRollsOfWallpaper(int countRollsOfWallpaper) {
-        this.countRollsOfWallpaper = countRollsOfWallpaper;
     }
 }

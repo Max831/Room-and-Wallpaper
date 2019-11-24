@@ -1,53 +1,39 @@
 package ru.rosbank.javaschool.service;
 
-import ru.rosbank.javaschool.repository.Room;
-import ru.rosbank.javaschool.repository.Wallpaper;
+import ru.rosbank.javaschool.model.Wallpaper;
 
 public class WallpaperService {
 
-    public void initialize(Room room, Wallpaper wallpaper) {
-        if (validateValueWallpaper(wallpaper) && validateValueRoom(room)) {
-            countSheetForRoom(room, wallpaper);
-            countSheetInOneOfWallpaper(room, wallpaper);
-            if (wallpaper.getCountSheetInOneOfWallpaper() > 0) {
-                rollsOfWallpaper(room, wallpaper);
-            } else {
-                System.out.println("Incorrect parameters");
-            }
-        }
-    }
-
-    public boolean validateValueRoom(Room room) {
-        if (room.getWidth() > 0 && room.getLength() > 0) {
-                return room.getHeight() > 0;
-            } else {
-            return false;
-        }
-    }
-
     public boolean validateValueWallpaper(Wallpaper wallpaper) {
-        if (wallpaper.getLength() > 0) {
-            return wallpaper.getWidth() > 0;
-        } else {
+        if (wallpaper.getLength() <= 0) {
+            return false;
+        } else if (wallpaper.getWidth() <= 0) {
             return false;
         }
+        return true;
     }
-    public void countSheetForRoom(Room room, Wallpaper wallpaper) {
-        wallpaper.setCountSheetForRoom((int) Math.ceil(room.getPerimeter() / wallpaper.getWidth()));
-        System.out.println("Count sheet for room " + wallpaper.getCountSheetForRoom());
+    public int countSheetForRoom(double perimeter, Wallpaper wallpaper) {
+        if (validateValueWallpaper(wallpaper)) {
+            wallpaper.setCountSheetForRoom((int) Math.ceil(perimeter / wallpaper.getWidth()));
+            return wallpaper.getCountSheetForRoom();
+        }
+        throw new RuntimeException("Incorrect Parameters");
     }
 
-    public void countSheetInOneOfWallpaper(Room room, Wallpaper wallpaper) {
+    public int countSheetInOneOfWallpaper(double height, Wallpaper wallpaper) {
         wallpaper.setCountSheetInOneOfWallpaper((int) Math.floor(wallpaper.getLength()
-                / (room.getHeight() + Wallpaper.getHeightUsability() + wallpaper.getRapport()
+                / (height + Wallpaper.getHeightUsability() + wallpaper.getRapport()
                 + wallpaper.getOffsetRapport())));
-            System.out.println("Count sheet in one of wallpaper "
-                    + wallpaper.getCountSheetInOneOfWallpaper());
+        return wallpaper.getCountSheetInOneOfWallpaper();
     }
 
-    public void rollsOfWallpaper(Room room, Wallpaper wallpaper) {
-        room.setCountRollsOfWallpaper(wallpaper.getCountSheetForRoom()
-                / wallpaper.getCountSheetInOneOfWallpaper());
-        System.out.println("Count rolls of wallpaper " + room.getCountRollsOfWallpaper());
+    public int rollsOfWallpaper(Wallpaper wallpaper) {
+        if (wallpaper.getCountSheetInOneOfWallpaper() > 0) {
+            wallpaper.setCountRollsOfWallpaper(wallpaper.getCountSheetForRoom()
+                    / wallpaper.getCountSheetInOneOfWallpaper());
+            return wallpaper.getCountRollsOfWallpaper();
+        }
+        throw new RuntimeException("Incorrect parametrs");
     }
+
 }

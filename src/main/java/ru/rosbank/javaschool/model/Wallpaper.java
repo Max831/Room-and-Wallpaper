@@ -1,4 +1,4 @@
-package ru.rosbank.javaschool.repository;
+package ru.rosbank.javaschool.model;
 
 public class Wallpaper {
     private double width;
@@ -8,6 +8,7 @@ public class Wallpaper {
     private int countSheetForRoom;
     private final static double heightUsability = 0.1;
     private int countSheetInOneOfWallpaper;
+    private int countRollsOfWallpaper;
 
     public Wallpaper(double width, double length) {
         this.width = width;
@@ -79,5 +80,13 @@ public class Wallpaper {
 
     public void setOffsetRapport(double offsetRapport) {
         this.offsetRapport = offsetRapport;
+    }
+
+    public int getCountRollsOfWallpaper() {
+        return countRollsOfWallpaper;
+    }
+
+    public void setCountRollsOfWallpaper(int countRollsOfWallpaper) {
+        this.countRollsOfWallpaper = countRollsOfWallpaper;
     }
 }
